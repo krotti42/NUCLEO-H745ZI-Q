@@ -28,7 +28,7 @@
 .thumb
 .text
 
-ENTRY(_start)
+ENTRY_S(_start)
     /**
      * Setup main stack pointer (SP_main)
      */
@@ -53,19 +53,28 @@ ENTRY(_start)
     ands r3, r2
     str r3, [r6]
     lsls r1, r0, ACTVOSRDY
-1:                                      /* Loop until ACTVOSRDY is valid */
+1:                              /* Loop until ACTVOSRDY is valid */
     ldr r6, =PWR_CSR1
     ldr r3, [r6]
     ands r3, r1
     cmp r3, r1
     bne 1b
     
+    bl icache_inval
+    bl dcache_inval
+    bl icache_enable
+    bl dcache_enable
+    bl ahbp_enable
+    bl itcm_enable
+    bl dtcm_enable
+    bl fpu_enable
+    
     sub sp, 8
     bl main
     add sp, 8
 2:
     b 2b
-
+ENTRY_E(_start)
 
 
 .end
