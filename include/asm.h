@@ -32,11 +32,18 @@
             .extern name ;
 
 /* Entry */
-#define ENTRY(name) ; \
+#define ENTRY_S(name) ; \
+        .func name,name ; \
+        .type name,%function ; \
         .globl name ; \
         .thumb_func ; \
         .align ; \
         name: ;
+
+#define ENTRY_E(name) ; \
+        .size name, . - name ; \
+        .pool ; \
+        .endfunc ;
 
 /* Interrupt Service Routine */
 #define ISR_S(name) ; \
