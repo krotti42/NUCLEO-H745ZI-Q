@@ -41,7 +41,11 @@
 .long 0
 .long isr_default
 .long isr_systick
-.rept 150
+.rept 55
+.long 0
+.endr
+.long isr_tim7
+.rept 94
 .long 0
 .endr
 
@@ -63,5 +67,13 @@ ISR_S(isr_systick)
     ldr r0, =0xFFFFFFF9
     bx r0
 ISR_E(isr_systick)
+
+ISR_S(isr_tim7)
+    push { r4-r11 }
+    bl handler_delay
+    pop { r4-r11 }
+    ldr r0, =0xFFFFFFF9
+    bx r0
+ISR_E(isr_tim7)
 
 .end
