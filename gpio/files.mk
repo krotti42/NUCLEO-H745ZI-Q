@@ -5,6 +5,8 @@
 #
 
 CSRC_TARGET_CM7			+= ./board.c
+CSRC_TARGET_CM7			+= ./delay.c
 CSRC_TARGET_CM7			+= ./gpio.c
 CSRC_TARGET_CM7			+= ./heartbeat.c
 CSRC_TARGET_CM7			+= ./main.c
+CSRC_TARGET_CM7			+= ./nvic.c
