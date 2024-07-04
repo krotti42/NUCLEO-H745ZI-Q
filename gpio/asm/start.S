@@ -68,10 +68,7 @@ ENTRY_S(_start)
     bl itcm_enable
     bl dtcm_enable
     bl fpu_enable
-    
-    sub sp, 8
     bl main
-    add sp, 8
 2:
     b 2b
 ENTRY_E(_start)
