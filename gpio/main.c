@@ -17,6 +17,7 @@
  */
 
 #include <board.h>
+#include <delay.h>
 #include <gpio.h>
 
 /* Blue button */
@@ -40,6 +41,7 @@ void main(void)
     int pin_state = 0;
     
     board_setup();
+    delay_init();
     
     /* Setup heartbeat pin */
     gpio_init(HEARTBEAT_PORT);
@@ -48,6 +50,7 @@ void main(void)
     
     /* Setup MCO2 output pin */
     gpio_init(MCO2_PORT);
+    gpio_set_ospeed(MCO2_PORT, MCO2_PIN, GPIO_SPEED_VHIGH);
     gpio_set_mode(MCO2_PORT, MCO2_PIN, GPIO_MODE_ALT);
     gpio_set_alternate(MCO2_PORT, MCO2_PIN, 0);
     
@@ -58,19 +61,22 @@ void main(void)
     /* Setup yellow LED */
     gpio_init(USER_LED_PORT);
     gpio_set_mode(USER_LED_PORT, USER_LED_PIN, GPIO_MODE_OUTPUT);
+    gpio_set_pin(USER_LED_PORT, USER_LED_PIN, 0);
     
     while (1) {
         if (gpio_get_pin(USER_BUTTON_PORT, USER_BUTTOM_PIN)) {
-            /**
-             * TODO: Add delay function for button bouncing
-             */
+            delay_ms(200);
             
-            if (pin_state) {
-                pin_state = 0;
-                gpio_set_pin(USER_LED_PORT, USER_LED_PIN, 0);
-            } else {
-                gpio_set_pin(USER_LED_PORT, USER_LED_PIN, 1);
-                pin_state = 1;
+            if (!gpio_get_pin(USER_BUTTON_PORT, USER_BUTTOM_PIN)) {
+                delay_ms(200);
+                
+                if (pin_state) {
+                    pin_state = 0;
+                    gpio_set_pin(USER_LED_PORT, USER_LED_PIN, 0);
+                } else {
+                    gpio_set_pin(USER_LED_PORT, USER_LED_PIN, 1);
+                    pin_state = 1;
+                }
             }
         }
     }
