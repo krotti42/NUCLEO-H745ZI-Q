@@ -60,6 +60,33 @@ ENTRY_S(_start)
     cmp r3, r1
     bne 1b
     
+    /**
+     * Zero section .bss
+     */
+    ldr r4, =_bss_s
+    ldr r5, =_bss_e
+    movs r0, #0
+2:
+    cmp r4, r5
+    beq 3f
+    str r0, [r4], #+4
+    b 2b
+    
+    /**
+     * Initialize section .data
+     */
+3:
+    ldr r4, =_data_s
+    ldr r5, =_data_e
+    ldr r6, =_data_s_load
+4:
+    cmp r4, r5
+    beq 5f
+    ldr r3, [r6], #+4
+    str r3, [r4], #+4
+    b 4b
+5:
+    
     bl icache_inval
     bl dcache_inval
     bl icache_enable
