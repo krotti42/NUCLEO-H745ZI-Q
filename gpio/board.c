@@ -159,7 +159,7 @@ void board_setup(void)
     tmp |= (2 << 6);            /* PLL2 clock input range 4-8MHz */
     tmp |= (1 << 4);            /* Enable PLL2 fractional mode */
     
-    tmp |= (2 << 10);           /* PLL2 clock input range 4-8MHz */
+    tmp |= (2 << 10);           /* PLL3 clock input range 4-8MHz */
     tmp |= (1 << 8);            /* Enable PLL3 fractional mode */
     
     *((unsigned int *) RCC_PLLCFGR) = tmp;
@@ -170,7 +170,7 @@ void board_setup(void)
     tmp = *(unsigned int *) (RCC_PLL1DIVR);
     tmp &= 0x8080000;
     
-    tmp |= (200 << 0);          /* VCO frequency => 800MHz */
+    tmp |= (199 << 0);          /* VCO frequency => 800MHz */
     tmp |= (1 << 9);            /* Output P => 400MHz */
     tmp |= (3 << 16);           /* Output Q => 200MHz */
     tmp |= (7 << 24);           /* Output R => 100MHz */
@@ -183,7 +183,7 @@ void board_setup(void)
     tmp = *(unsigned int *) (RCC_PLL2DIVR);
     tmp &= 0x8080000;
     
-    tmp |= (100 << 0);          /* VCO frequency => 400MHz */
+    tmp |= (99 << 0);          /* VCO frequency => 400MHz */
     tmp |= (1 << 9);            /* Output P => 200MHz */
     tmp |= (3 << 16);           /* Output Q => 100MHz */
     tmp |= (7 << 24);           /* Output R => 50MHz */
@@ -196,7 +196,7 @@ void board_setup(void)
     tmp = *(unsigned int *) (RCC_PLL3DIVR);
     tmp &= 0x8080000;
     
-    tmp |= (50 << 0);           /* VCO frequency => 200MHz */
+    tmp |= (49 << 0);           /* VCO frequency => 200MHz */
     tmp |= (1 << 9);            /* Output P => 100MHz */
     tmp |= (3 << 16);           /* Output Q => 50MHz */
     tmp |= (7 << 24);           /* Output R => 25MHz */
