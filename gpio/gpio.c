@@ -46,71 +46,71 @@ void gpio_set_mode(int port, int pin, int mode)
     
     switch (port) {
         case GPIOA: {
-            tmp_reg = *((unsigned int *) GPIOA_MODER);
+            tmp_reg = *((volatile unsigned int *) GPIOA_MODER);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_mode << (pin * 2));
-            *((unsigned int *) GPIOA_MODER) = tmp_reg;
+            *((volatile unsigned int *) GPIOA_MODER) = tmp_reg;
             break;
         }
         case GPIOB:
-            tmp_reg = *((unsigned int *) GPIOB_MODER);
+            tmp_reg = *((volatile unsigned int *) GPIOB_MODER);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_mode << (pin * 2));
-            *((unsigned int *) GPIOB_MODER) = tmp_reg;
+            *((volatile unsigned int *) GPIOB_MODER) = tmp_reg;
             break;
         case GPIOC:
-            tmp_reg = *((unsigned int *) GPIOC_MODER);
+            tmp_reg = *((volatile unsigned int *) GPIOC_MODER);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_mode << (pin * 2));
-            *((unsigned int *) GPIOC_MODER) = tmp_reg;
+            *((volatile unsigned int *) GPIOC_MODER) = tmp_reg;
             break;
         case GPIOD:
-            tmp_reg = *((unsigned int *) GPIOD_MODER);
+            tmp_reg = *((volatile unsigned int *) GPIOD_MODER);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_mode << (pin * 2));
-            *((unsigned int *) GPIOD_MODER) = tmp_reg;
+            *((volatile unsigned int *) GPIOD_MODER) = tmp_reg;
             break;
         case GPIOE:
-            tmp_reg = *((unsigned int *) GPIOE_MODER);
+            tmp_reg = *((volatile unsigned int *) GPIOE_MODER);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_mode << (pin * 2));
-            *((unsigned int *) GPIOE_MODER) = tmp_reg;
+            *((volatile unsigned int *) GPIOE_MODER) = tmp_reg;
             break;
         case GPIOF:
-            tmp_reg = *((unsigned int *) GPIOF_MODER);
+            tmp_reg = *((volatile unsigned int *) GPIOF_MODER);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_mode << (pin * 2));
-            *((unsigned int *) GPIOF_MODER) = tmp_reg;
+            *((volatile unsigned int *) GPIOF_MODER) = tmp_reg;
             break;
         case GPIOG:
-            tmp_reg = *((unsigned int *) GPIOG_MODER);
+            tmp_reg = *((volatile unsigned int *) GPIOG_MODER);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_mode << (pin * 2));
-            *((unsigned int *) GPIOG_MODER) = tmp_reg;
+            *((volatile unsigned int *) GPIOG_MODER) = tmp_reg;
             break;
         case GPIOH:
-            tmp_reg = *((unsigned int *) GPIOH_MODER);
+            tmp_reg = *((volatile unsigned int *) GPIOH_MODER);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_mode << (pin * 2));
-            *((unsigned int *) GPIOH_MODER) = tmp_reg;
+            *((volatile unsigned int *) GPIOH_MODER) = tmp_reg;
             break;
         case GPIOI:
-            tmp_reg = *((unsigned int *) GPIOI_MODER);
+            tmp_reg = *((volatile unsigned int *) GPIOI_MODER);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_mode << (pin * 2));
-            *((unsigned int *) GPIOI_MODER) = tmp_reg;
+            *((volatile unsigned int *) GPIOI_MODER) = tmp_reg;
             break;
         case GPIOJ:
-            tmp_reg = *((unsigned int *) GPIOJ_MODER);
+            tmp_reg = *((volatile unsigned int *) GPIOJ_MODER);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_mode << (pin * 2));
-            *((unsigned int *) GPIOJ_MODER) = tmp_reg;
+            *((volatile unsigned int *) GPIOJ_MODER) = tmp_reg;
             break;
         case GPIOK:
-            tmp_reg = *((unsigned int *) GPIOK_MODER);
+            tmp_reg = *((volatile unsigned int *) GPIOK_MODER);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_mode << (pin * 2));
-            *((unsigned int *) GPIOK_MODER) = tmp_reg;
+            *((volatile unsigned int *) GPIOK_MODER) = tmp_reg;
             break;
         default:
             return;
@@ -150,114 +150,114 @@ void gpio_set_otype(int port, int pin, int otype, int pupd)
     
     switch (port) {
         case GPIOA:
-            tmp_reg = *((unsigned int *) GPIOA_OTYPER);
+            tmp_reg = *((volatile unsigned int *) GPIOA_OTYPER);
             tmp_reg &= ~(1 << pin);
             tmp_reg |= (tmp_otype << pin);
-            *((unsigned int *) GPIOA_OTYPER) = tmp_reg;
-            tmp_reg = *((unsigned int *) GPIOA_PUPDR);
+            *((volatile unsigned int *) GPIOA_OTYPER) = tmp_reg;
+            tmp_reg = *((volatile unsigned int *) GPIOA_PUPDR);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_pupd << (pin * 2));
-            *((unsigned int *) GPIOA_PUPDR) = tmp_reg;
+            *((volatile unsigned int *) GPIOA_PUPDR) = tmp_reg;
             break;
         case GPIOB:
-            tmp_reg = *((unsigned int *) GPIOB_OTYPER);
+            tmp_reg = *((volatile unsigned int *) GPIOB_OTYPER);
             tmp_reg &= ~(1 << pin);
             tmp_reg |= (tmp_otype << pin);
-            *((unsigned int *) GPIOB_OTYPER) = tmp_reg;
-            tmp_reg = *((unsigned int *) GPIOB_PUPDR);
+            *((volatile unsigned int *) GPIOB_OTYPER) = tmp_reg;
+            tmp_reg = *((volatile unsigned int *) GPIOB_PUPDR);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_pupd << (pin * 2));
-            *((unsigned int *) GPIOB_PUPDR) = tmp_reg;
+            *((volatile unsigned int *) GPIOB_PUPDR) = tmp_reg;
             break;
         case GPIOC:
-            tmp_reg = *((unsigned int *) GPIOC_OTYPER);
+            tmp_reg = *((volatile unsigned int *) GPIOC_OTYPER);
             tmp_reg &= ~(1 << pin);
             tmp_reg |= (tmp_otype << pin);
-            *((unsigned int *) GPIOC_OTYPER) = tmp_reg;
-            tmp_reg = *((unsigned int *) GPIOC_PUPDR);
+            *((volatile unsigned int *) GPIOC_OTYPER) = tmp_reg;
+            tmp_reg = *((volatile unsigned int *) GPIOC_PUPDR);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_pupd << (pin * 2));
-            *((unsigned int *) GPIOC_PUPDR) = tmp_reg;
+            *((volatile unsigned int *) GPIOC_PUPDR) = tmp_reg;
             break;
         case GPIOD:
-            tmp_reg = *((unsigned int *) GPIOD_OTYPER);
+            tmp_reg = *((volatile unsigned int *) GPIOD_OTYPER);
             tmp_reg &= ~(1 << pin);
             tmp_reg |= (tmp_otype << pin);
-            *((unsigned int *) GPIOD_OTYPER) = tmp_reg;
-            tmp_reg = *((unsigned int *) GPIOD_PUPDR);
+            *((volatile unsigned int *) GPIOD_OTYPER) = tmp_reg;
+            tmp_reg = *((volatile unsigned int *) GPIOD_PUPDR);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_pupd << (pin * 2));
-            *((unsigned int *) GPIOD_PUPDR) = tmp_reg;
+            *((volatile unsigned int *) GPIOD_PUPDR) = tmp_reg;
             break;
         case GPIOE:
-            tmp_reg = *((unsigned int *) GPIOE_OTYPER);
+            tmp_reg = *((volatile unsigned int *) GPIOE_OTYPER);
             tmp_reg &= ~(1 << pin);
             tmp_reg |= (tmp_otype << pin);
-            *((unsigned int *) GPIOE_OTYPER) = tmp_reg;
-            tmp_reg = *((unsigned int *) GPIOE_PUPDR);
+            *((volatile unsigned int *) GPIOE_OTYPER) = tmp_reg;
+            tmp_reg = *((volatile unsigned int *) GPIOE_PUPDR);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_pupd << (pin * 2));
-            *((unsigned int *) GPIOE_PUPDR) = tmp_reg;
+            *((volatile unsigned int *) GPIOE_PUPDR) = tmp_reg;
             break;
         case GPIOF:
-            tmp_reg = *((unsigned int *) GPIOF_OTYPER);
+            tmp_reg = *((volatile unsigned int *) GPIOF_OTYPER);
             tmp_reg &= ~(1 << pin);
             tmp_reg |= (tmp_otype << pin);
-            *((unsigned int *) GPIOF_OTYPER) = tmp_reg;
-            tmp_reg = *((unsigned int *) GPIOF_PUPDR);
+            *((volatile unsigned int *) GPIOF_OTYPER) = tmp_reg;
+            tmp_reg = *((volatile unsigned int *) GPIOF_PUPDR);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_pupd << (pin * 2));
-            *((unsigned int *) GPIOF_PUPDR) = tmp_reg;
+            *((volatile unsigned int *) GPIOF_PUPDR) = tmp_reg;
             break;
         case GPIOG:
-            tmp_reg = *((unsigned int *) GPIOG_OTYPER);
+            tmp_reg = *((volatile unsigned int *) GPIOG_OTYPER);
             tmp_reg &= ~(1 << pin);
             tmp_reg |= (tmp_otype << pin);
-            *((unsigned int *) GPIOG_OTYPER) = tmp_reg;
-            tmp_reg = *((unsigned int *) GPIOG_PUPDR);
+            *((volatile unsigned int *) GPIOG_OTYPER) = tmp_reg;
+            tmp_reg = *((volatile unsigned int *) GPIOG_PUPDR);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_pupd << (pin * 2));
-            *((unsigned int *) GPIOG_PUPDR) = tmp_reg;
+            *((volatile unsigned int *) GPIOG_PUPDR) = tmp_reg;
             break;
         case GPIOH:
-            tmp_reg = *((unsigned int *) GPIOH_OTYPER);
+            tmp_reg = *((volatile unsigned int *) GPIOH_OTYPER);
             tmp_reg &= ~(1 << pin);
             tmp_reg |= (tmp_otype << pin);
-            *((unsigned int *) GPIOH_OTYPER) = tmp_reg;
-            tmp_reg = *((unsigned int *) GPIOH_PUPDR);
+            *((volatile unsigned int *) GPIOH_OTYPER) = tmp_reg;
+            tmp_reg = *((volatile unsigned int *) GPIOH_PUPDR);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_pupd << (pin * 2));
-            *((unsigned int *) GPIOH_PUPDR) = tmp_reg;
+            *((volatile unsigned int *) GPIOH_PUPDR) = tmp_reg;
             break;
         case GPIOI:
-            tmp_reg = *((unsigned int *) GPIOI_OTYPER);
+            tmp_reg = *((volatile unsigned int *) GPIOI_OTYPER);
             tmp_reg &= ~(1 << pin);
             tmp_reg |= (tmp_otype << pin);
-            *((unsigned int *) GPIOI_OTYPER) = tmp_reg;
-            tmp_reg = *((unsigned int *) GPIOI_PUPDR);
+            *((volatile unsigned int *) GPIOI_OTYPER) = tmp_reg;
+            tmp_reg = *((volatile unsigned int *) GPIOI_PUPDR);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_pupd << (pin * 2));
-            *((unsigned int *) GPIOI_PUPDR) = tmp_reg;
+            *((volatile unsigned int *) GPIOI_PUPDR) = tmp_reg;
             break;
         case GPIOJ:
-            tmp_reg = *((unsigned int *) GPIOJ_OTYPER);
+            tmp_reg = *((volatile unsigned int *) GPIOJ_OTYPER);
             tmp_reg &= ~(1 << pin);
             tmp_reg |= (tmp_otype << pin);
-            *((unsigned int *) GPIOJ_OTYPER) = tmp_reg;
-            tmp_reg = *((unsigned int *) GPIOJ_PUPDR);
+            *((volatile unsigned int *) GPIOJ_OTYPER) = tmp_reg;
+            tmp_reg = *((volatile unsigned int *) GPIOJ_PUPDR);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_pupd << (pin * 2));
-            *((unsigned int *) GPIOJ_PUPDR) = tmp_reg;
+            *((volatile unsigned int *) GPIOJ_PUPDR) = tmp_reg;
             break;
         case GPIOK:
-            tmp_reg = *((unsigned int *) GPIOK_OTYPER);
+            tmp_reg = *((volatile unsigned int *) GPIOK_OTYPER);
             tmp_reg &= ~(1 << pin);
             tmp_reg |= (tmp_otype << pin);
-            *((unsigned int *) GPIOK_OTYPER) = tmp_reg;
-            tmp_reg = *((unsigned int *) GPIOK_PUPDR);
+            *((volatile unsigned int *) GPIOK_OTYPER) = tmp_reg;
+            tmp_reg = *((volatile unsigned int *) GPIOK_PUPDR);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_pupd << (pin * 2));
-            *((unsigned int *) GPIOK_PUPDR) = tmp_reg;
+            *((volatile unsigned int *) GPIOK_PUPDR) = tmp_reg;
             break;
         default:
             return;
@@ -291,70 +291,70 @@ void gpio_set_ospeed(int port, int pin, int ospeed)
     
     switch (port) {
         case GPIOA:
-            tmp_reg = *((unsigned int *) GPIOA_OSPEEDR);
+            tmp_reg = *((volatile unsigned int *) GPIOA_OSPEEDR);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_speed << (pin * 2));
-            *((unsigned int *) GPIOA_OSPEEDR) = tmp_reg;
+            *((volatile unsigned int *) GPIOA_OSPEEDR) = tmp_reg;
             break;
         case GPIOB:
-            tmp_reg = *((unsigned int *) GPIOB_OSPEEDR);
+            tmp_reg = *((volatile unsigned int *) GPIOB_OSPEEDR);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_speed << (pin * 2));
-            *((unsigned int *) GPIOB_OSPEEDR) = tmp_reg;
+            *((volatile unsigned int *) GPIOB_OSPEEDR) = tmp_reg;
             break;
         case GPIOC:
-            tmp_reg = *((unsigned int *) GPIOC_OSPEEDR);
+            tmp_reg = *((volatile unsigned int *) GPIOC_OSPEEDR);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_speed << (pin * 2));
-            *((unsigned int *) GPIOC_OSPEEDR) = tmp_reg;
+            *((volatile unsigned int *) GPIOC_OSPEEDR) = tmp_reg;
             break;
         case GPIOD:
-            tmp_reg = *((unsigned int *) GPIOD_OSPEEDR);
+            tmp_reg = *((volatile unsigned int *) GPIOD_OSPEEDR);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_speed << (pin * 2));
-            *((unsigned int *) GPIOD_OSPEEDR) = tmp_reg;
+            *((volatile unsigned int *) GPIOD_OSPEEDR) = tmp_reg;
             break;
         case GPIOE:
-            tmp_reg = *((unsigned int *) GPIOE_OSPEEDR);
+            tmp_reg = *((volatile unsigned int *) GPIOE_OSPEEDR);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_speed << (pin * 2));
-            *((unsigned int *) GPIOE_OSPEEDR) = tmp_reg;
+            *((volatile unsigned int *) GPIOE_OSPEEDR) = tmp_reg;
             break;
         case GPIOF:
-            tmp_reg = *((unsigned int *) GPIOF_OSPEEDR);
+            tmp_reg = *((volatile unsigned int *) GPIOF_OSPEEDR);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_speed << (pin * 2));
-            *((unsigned int *) GPIOF_OSPEEDR) = tmp_reg;
+            *((volatile unsigned int *) GPIOF_OSPEEDR) = tmp_reg;
             break;
         case GPIOG:
-            tmp_reg = *((unsigned int *) GPIOG_OSPEEDR);
+            tmp_reg = *((volatile unsigned int *) GPIOG_OSPEEDR);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_speed << (pin * 2));
-            *((unsigned int *) GPIOG_OSPEEDR) = tmp_reg;
+            *((volatile unsigned int *) GPIOG_OSPEEDR) = tmp_reg;
             break;
         case GPIOH:
-            tmp_reg = *((unsigned int *) GPIOH_OSPEEDR);
+            tmp_reg = *((volatile unsigned int *) GPIOH_OSPEEDR);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_speed << (pin * 2));
-            *((unsigned int *) GPIOH_OSPEEDR) = tmp_reg;
+            *((volatile unsigned int *) GPIOH_OSPEEDR) = tmp_reg;
             break;
         case GPIOI:
-            tmp_reg = *((unsigned int *) GPIOI_OSPEEDR);
+            tmp_reg = *((volatile unsigned int *) GPIOI_OSPEEDR);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_speed << (pin * 2));
-            *((unsigned int *) GPIOI_OSPEEDR) = tmp_reg;
+            *((volatile unsigned int *) GPIOI_OSPEEDR) = tmp_reg;
             break;
         case GPIOJ:
-            tmp_reg = *((unsigned int *) GPIOJ_OSPEEDR);
+            tmp_reg = *((volatile unsigned int *) GPIOJ_OSPEEDR);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_speed << (pin * 2));
-            *((unsigned int *) GPIOJ_OSPEEDR) = tmp_reg;
+            *((volatile unsigned int *) GPIOJ_OSPEEDR) = tmp_reg;
             break;
         case GPIOK:
-            tmp_reg = *((unsigned int *) GPIOK_OSPEEDR);
+            tmp_reg = *((volatile unsigned int *) GPIOK_OSPEEDR);
             tmp_reg &= ~(3 << (pin * 2));
             tmp_reg |= (tmp_speed << (pin * 2));
-            *((unsigned int *) GPIOK_OSPEEDR) = tmp_reg;
+            *((volatile unsigned int *) GPIOK_OSPEEDR) = tmp_reg;
             break;
         default:
             return;
@@ -377,70 +377,70 @@ void gpio_set_alternate(int port, int pin, int alternate)
     if (pin > 7) {
         switch (port) {
             case GPIOA:
-                tmp_reg = *((unsigned int *) GPIOA_AFRH);
+                tmp_reg = *((volatile unsigned int *) GPIOA_AFRH);
                 tmp_reg &= ~(15 << ((pin - 8) * 4));
                 tmp_reg |= (tmp_alt << ((pin - 8) * 4));
-                *((unsigned int *) GPIOA_AFRH) = tmp_reg;
+                *((volatile unsigned int *) GPIOA_AFRH) = tmp_reg;
                 break;
             case GPIOB:
-                tmp_reg = *((unsigned int *) GPIOB_AFRH);
+                tmp_reg = *((volatile unsigned int *) GPIOB_AFRH);
                 tmp_reg &= ~(15 << ((pin - 8) * 4));
                 tmp_reg |= (tmp_alt << ((pin - 8) * 4));
-                *((unsigned int *) GPIOB_AFRH) = tmp_reg;
+                *((volatile unsigned int *) GPIOB_AFRH) = tmp_reg;
                 break;
             case GPIOC:
-                tmp_reg = *((unsigned int *) GPIOC_AFRH);
+                tmp_reg = *((volatile unsigned int *) GPIOC_AFRH);
                 tmp_reg &= ~(15 << ((pin - 8) * 4));
                 tmp_reg |= (tmp_alt << ((pin - 8) * 4));
-                *((unsigned int *) GPIOC_AFRH) = tmp_reg;
+                *((volatile unsigned int *) GPIOC_AFRH) = tmp_reg;
                 break;
             case GPIOD:
-                tmp_reg = *((unsigned int *) GPIOD_AFRH);
+                tmp_reg = *((volatile unsigned int *) GPIOD_AFRH);
                 tmp_reg &= ~(15 << ((pin - 8) * 4));
                 tmp_reg |= (tmp_alt << ((pin - 8) * 4));
-                *((unsigned int *) GPIOD_AFRH) = tmp_reg;
+                *((volatile unsigned int *) GPIOD_AFRH) = tmp_reg;
                 break;
             case GPIOE:
-                tmp_reg = *((unsigned int *) GPIOE_AFRH);
+                tmp_reg = *((volatile unsigned int *) GPIOE_AFRH);
                 tmp_reg &= ~(15 << ((pin - 8) * 4));
                 tmp_reg |= (tmp_alt << ((pin - 8) * 4));
-                *((unsigned int *) GPIOE_AFRH) = tmp_reg;
+                *((volatile unsigned int *) GPIOE_AFRH) = tmp_reg;
                 break;
             case GPIOF:
-                tmp_reg = *((unsigned int *) GPIOF_AFRH);
+                tmp_reg = *((volatile unsigned int *) GPIOF_AFRH);
                 tmp_reg &= ~(15 << ((pin - 8) * 4));
                 tmp_reg |= (tmp_alt << ((pin - 8) * 4));
-                *((unsigned int *) GPIOF_AFRH) = tmp_reg;
+                *((volatile unsigned int *) GPIOF_AFRH) = tmp_reg;
                 break;
             case GPIOG:
-                tmp_reg = *((unsigned int *) GPIOG_AFRH);
+                tmp_reg = *((volatile unsigned int *) GPIOG_AFRH);
                 tmp_reg &= ~(15 << ((pin - 8) * 4));
                 tmp_reg |= (tmp_alt << ((pin - 8) * 4));
-                *((unsigned int *) GPIOG_AFRH) = tmp_reg;
+                *((volatile unsigned int *) GPIOG_AFRH) = tmp_reg;
                 break;
             case GPIOH:
-                tmp_reg = *((unsigned int *) GPIOH_AFRH);
+                tmp_reg = *((volatile unsigned int *) GPIOH_AFRH);
                 tmp_reg &= ~(15 << ((pin - 8) * 4));
                 tmp_reg |= (tmp_alt << ((pin - 8) * 4));
-                *((unsigned int *) GPIOH_AFRH) = tmp_reg;
+                *((volatile unsigned int *) GPIOH_AFRH) = tmp_reg;
                 break;
             case GPIOI:
-                tmp_reg = *((unsigned int *) GPIOI_AFRH);
+                tmp_reg = *((volatile unsigned int *) GPIOI_AFRH);
                 tmp_reg &= ~(15 << ((pin - 8) * 4));
                 tmp_reg |= (tmp_alt << ((pin - 8) * 4));
-                *((unsigned int *) GPIOI_AFRH) = tmp_reg;
+                *((volatile unsigned int *) GPIOI_AFRH) = tmp_reg;
                 break;
             case GPIOJ:
-                tmp_reg = *((unsigned int *) GPIOJ_AFRH);
+                tmp_reg = *((volatile unsigned int *) GPIOJ_AFRH);
                 tmp_reg &= ~(15 << ((pin - 8) * 4));
                 tmp_reg |= (tmp_alt << ((pin - 8) * 4));
-                *((unsigned int *) GPIOJ_AFRH) = tmp_reg;
+                *((volatile unsigned int *) GPIOJ_AFRH) = tmp_reg;
                 break;
             case GPIOK:
-                tmp_reg = *((unsigned int *) GPIOK_AFRH);
+                tmp_reg = *((volatile unsigned int *) GPIOK_AFRH);
                 tmp_reg &= ~(15 << ((pin - 8) * 4));
                 tmp_reg |= (tmp_alt << ((pin - 8) * 4));
-                *((unsigned int *) GPIOK_AFRH) = tmp_reg;
+                *((volatile unsigned int *) GPIOK_AFRH) = tmp_reg;
                 break;
                 break;
             default:
@@ -449,70 +449,70 @@ void gpio_set_alternate(int port, int pin, int alternate)
     } else {
         switch (port) {
             case GPIOA:
-                tmp_reg = *((unsigned int *) GPIOA_AFRL);
+                tmp_reg = *((volatile unsigned int *) GPIOA_AFRL);
                 tmp_reg &= ~(15 << (pin * 4));
                 tmp_reg |= (tmp_alt << (pin * 4));
-                *((unsigned int *) GPIOA_AFRL) = tmp_reg;
+                *((volatile unsigned int *) GPIOA_AFRL) = tmp_reg;
                 break;
             case GPIOB:
-                tmp_reg = *((unsigned int *) GPIOB_AFRL);
+                tmp_reg = *((volatile unsigned int *) GPIOB_AFRL);
                 tmp_reg &= ~(15 << (pin * 4));
                 tmp_reg |= (tmp_alt << (pin * 4));
-                *((unsigned int *) GPIOB_AFRL) = tmp_reg;
+                *((volatile unsigned int *) GPIOB_AFRL) = tmp_reg;
                 break;
             case GPIOC:
-                tmp_reg = *((unsigned int *) GPIOC_AFRL);
+                tmp_reg = *((volatile unsigned int *) GPIOC_AFRL);
                 tmp_reg &= ~(15 << (pin * 4));
                 tmp_reg |= (tmp_alt << (pin * 4));
-                *((unsigned int *) GPIOC_AFRL) = tmp_reg;
+                *((volatile unsigned int *) GPIOC_AFRL) = tmp_reg;
                 break;
             case GPIOD:
-                tmp_reg = *((unsigned int *) GPIOD_AFRL);
+                tmp_reg = *((volatile unsigned int *) GPIOD_AFRL);
                 tmp_reg &= ~(15 << (pin * 4));
                 tmp_reg |= (tmp_alt << (pin * 4));
-                *((unsigned int *) GPIOD_AFRL) = tmp_reg;
+                *((volatile unsigned int *) GPIOD_AFRL) = tmp_reg;
                 break;
             case GPIOE:
-                tmp_reg = *((unsigned int *) GPIOE_AFRL);
+                tmp_reg = *((volatile unsigned int *) GPIOE_AFRL);
                 tmp_reg &= ~(15 << (pin * 4));
                 tmp_reg |= (tmp_alt << (pin * 4));
-                *((unsigned int *) GPIOE_AFRL) = tmp_reg;
+                *((volatile unsigned int *) GPIOE_AFRL) = tmp_reg;
                 break;
             case GPIOF:
-                tmp_reg = *((unsigned int *) GPIOF_AFRL);
+                tmp_reg = *((volatile unsigned int *) GPIOF_AFRL);
                 tmp_reg &= ~(15 << (pin * 4));
                 tmp_reg |= (tmp_alt << (pin * 4));
-                *((unsigned int *) GPIOF_AFRL) = tmp_reg;
+                *((volatile unsigned int *) GPIOF_AFRL) = tmp_reg;
                 break;
             case GPIOG:
-                tmp_reg = *((unsigned int *) GPIOG_AFRL);
+                tmp_reg = *((volatile unsigned int *) GPIOG_AFRL);
                 tmp_reg &= ~(15 << (pin * 4));
                 tmp_reg |= (tmp_alt << (pin * 4));
-                *((unsigned int *) GPIOG_AFRL) = tmp_reg;
+                *((volatile unsigned int *) GPIOG_AFRL) = tmp_reg;
                 break;
             case GPIOH:
-                tmp_reg = *((unsigned int *) GPIOH_AFRL);
+                tmp_reg = *((volatile unsigned int *) GPIOH_AFRL);
                 tmp_reg &= ~(15 << (pin * 4));
                 tmp_reg |= (tmp_alt << (pin * 4));
-                *((unsigned int *) GPIOH_AFRL) = tmp_reg;
+                *((volatile unsigned int *) GPIOH_AFRL) = tmp_reg;
                 break;
             case GPIOI:
-                tmp_reg = *((unsigned int *) GPIOI_AFRL);
+                tmp_reg = *((volatile unsigned int *) GPIOI_AFRL);
                 tmp_reg &= ~(15 << (pin * 4));
                 tmp_reg |= (tmp_alt << (pin * 4));
-                *((unsigned int *) GPIOI_AFRL) = tmp_reg;
+                *((volatile unsigned int *) GPIOI_AFRL) = tmp_reg;
                 break;
             case GPIOJ:
-                tmp_reg = *((unsigned int *) GPIOJ_AFRL);
+                tmp_reg = *((volatile unsigned int *) GPIOJ_AFRL);
                 tmp_reg &= ~(15 << (pin * 4));
                 tmp_reg |= (tmp_alt << (pin * 4));
-                *((unsigned int *) GPIOJ_AFRL) = tmp_reg;
+                *((volatile unsigned int *) GPIOJ_AFRL) = tmp_reg;
                 break;
             case GPIOK:
-                tmp_reg = *((unsigned int *) GPIOK_AFRL);
+                tmp_reg = *((volatile unsigned int *) GPIOK_AFRL);
                 tmp_reg &= ~(15 << (pin * 4));
                 tmp_reg |= (tmp_alt << (pin * 4));
-                *((unsigned int *) GPIOK_AFRL) = tmp_reg;
+                *((volatile unsigned int *) GPIOK_AFRL) = tmp_reg;
                 break;
             default:
                 return;
@@ -526,70 +526,70 @@ void gpio_init(int port)
     
     switch (port) {
         case GPIOA:
-            tmp_reg = *((unsigned int *) RCC_AHB4ENR);
+            tmp_reg = *((volatile unsigned int *) RCC_AHB4ENR);
             tmp_reg &= ~(1 << 0);
             tmp_reg |= (1 << 0);
-            *((unsigned int *) RCC_AHB4ENR) = tmp_reg;
+            *((volatile unsigned int *) RCC_AHB4ENR) = tmp_reg;
             break;
         case GPIOB:
-            tmp_reg = *((unsigned int *) RCC_AHB4ENR);
+            tmp_reg = *((volatile unsigned int *) RCC_AHB4ENR);
             tmp_reg &= ~(1 << 1);
             tmp_reg |= (1 << 1);
-            *((unsigned int *) RCC_AHB4ENR) = tmp_reg;
+            *((volatile unsigned int *) RCC_AHB4ENR) = tmp_reg;
             break;
         case GPIOC:
-            tmp_reg = *((unsigned int *) RCC_AHB4ENR);
+            tmp_reg = *((volatile unsigned int *) RCC_AHB4ENR);
             tmp_reg &= ~(1 << 2);
             tmp_reg |= (1 << 2);
-            *((unsigned int *) RCC_AHB4ENR) = tmp_reg;
+            *((volatile unsigned int *) RCC_AHB4ENR) = tmp_reg;
             break;
         case GPIOD:
-            tmp_reg = *((unsigned int *) RCC_AHB4ENR);
+            tmp_reg = *((volatile unsigned int *) RCC_AHB4ENR);
             tmp_reg &= ~(1 << 3);
             tmp_reg |= (1 << 3);
-            *((unsigned int *) RCC_AHB4ENR) = tmp_reg;
+            *((volatile unsigned int *) RCC_AHB4ENR) = tmp_reg;
             break;
         case GPIOE:
-            tmp_reg = *((unsigned int *) RCC_AHB4ENR);
+            tmp_reg = *((volatile unsigned int *) RCC_AHB4ENR);
             tmp_reg &= ~(1 << 4);
             tmp_reg |= (1 << 4);
-            *((unsigned int *) RCC_AHB4ENR) = tmp_reg;
+            *((volatile unsigned int *) RCC_AHB4ENR) = tmp_reg;
             break;
         case GPIOF:
-            tmp_reg = *((unsigned int *) RCC_AHB4ENR);
+            tmp_reg = *((volatile unsigned int *) RCC_AHB4ENR);
             tmp_reg &= ~(1 << 5);
             tmp_reg |= (1 << 5);
-            *((unsigned int *) RCC_AHB4ENR) = tmp_reg;
+            *((volatile unsigned int *) RCC_AHB4ENR) = tmp_reg;
             break;
         case GPIOG:
-            tmp_reg = *((unsigned int *) RCC_AHB4ENR);
+            tmp_reg = *((volatile unsigned int *) RCC_AHB4ENR);
             tmp_reg &= ~(1 << 6);
             tmp_reg |= (1 << 6);
-            *((unsigned int *) RCC_AHB4ENR) = tmp_reg;
+            *((volatile unsigned int *) RCC_AHB4ENR) = tmp_reg;
             break;
         case GPIOH:
-            tmp_reg = *((unsigned int *) RCC_AHB4ENR);
+            tmp_reg = *((volatile unsigned int *) RCC_AHB4ENR);
             tmp_reg &= ~(1 << 7);
             tmp_reg |= (1 << 7);
-            *((unsigned int *) RCC_AHB4ENR) = tmp_reg;
+            *((volatile unsigned int *) RCC_AHB4ENR) = tmp_reg;
             break;
         case GPIOI:
-            tmp_reg = *((unsigned int *) RCC_AHB4ENR);
+            tmp_reg = *((volatile unsigned int *) RCC_AHB4ENR);
             tmp_reg &= ~(1 << 8);
             tmp_reg |= (1 << 8);
-            *((unsigned int *) RCC_AHB4ENR) = tmp_reg;
+            *((volatile unsigned int *) RCC_AHB4ENR) = tmp_reg;
             break;
         case GPIOJ:
-            tmp_reg = *((unsigned int *) RCC_AHB4ENR);
+            tmp_reg = *((volatile unsigned int *) RCC_AHB4ENR);
             tmp_reg &= ~(1 << 9);
             tmp_reg |= (1 << 9);
-            *((unsigned int *) RCC_AHB4ENR) = tmp_reg;
+            *((volatile unsigned int *) RCC_AHB4ENR) = tmp_reg;
             break;
         case GPIOK:
-            tmp_reg = *((unsigned int *) RCC_AHB4ENR);
+            tmp_reg = *((volatile unsigned int *) RCC_AHB4ENR);
             tmp_reg &= ~(1 << 10);
             tmp_reg |= (1 << 10);
-            *((unsigned int *) RCC_AHB4ENR) = tmp_reg;
+            *((volatile unsigned int *) RCC_AHB4ENR) = tmp_reg;
             break;
         default:
             return;
@@ -603,70 +603,70 @@ void gpio_set_pin(int port, int pin, int val)
     if (val) {
         switch (port) {
             case GPIOA:
-                tmp = *((unsigned int *) GPIOA_BSRR);
+                tmp = *((volatile unsigned int *) GPIOA_BSRR);
                 tmp &= ~(1 << pin);
                 tmp |= (1 << pin);
-                *((unsigned int *) GPIOA_BSRR) = tmp;
+                *((volatile unsigned int *) GPIOA_BSRR) = tmp;
                 break;
             case GPIOB:
-                tmp = *((unsigned int *) GPIOB_BSRR);
+                tmp = *((volatile unsigned int *) GPIOB_BSRR);
                 tmp &= ~(1 << pin);
                 tmp |= (1 << pin);
-                *((unsigned int *) GPIOB_BSRR) = tmp;
+                *((volatile unsigned int *) GPIOB_BSRR) = tmp;
                 break;
             case GPIOC:
-                tmp = *((unsigned int *) GPIOC_BSRR);
+                tmp = *((volatile unsigned int *) GPIOC_BSRR);
                 tmp &= ~(1 << pin);
                 tmp |= (1 << pin);
-                *((unsigned int *) GPIOC_BSRR) = tmp;
+                *((volatile unsigned int *) GPIOC_BSRR) = tmp;
                 break;
             case GPIOD:
-                tmp = *((unsigned int *) GPIOD_BSRR);
+                tmp = *((volatile unsigned int *) GPIOD_BSRR);
                 tmp &= ~(1 << pin);
                 tmp |= (1 << pin);
-                *((unsigned int *) GPIOD_BSRR) = tmp;
+                *((volatile unsigned int *) GPIOD_BSRR) = tmp;
                 break;
             case GPIOE:
-                tmp = *((unsigned int *) GPIOE_BSRR);
+                tmp = *((volatile unsigned int *) GPIOE_BSRR);
                 tmp &= ~(1 << pin);
                 tmp |= (1 << pin);
-                *((unsigned int *) GPIOE_BSRR) = tmp;
+                *((volatile unsigned int *) GPIOE_BSRR) = tmp;
                 break;
             case GPIOF:
-                tmp = *((unsigned int *) GPIOF_BSRR);
+                tmp = *((volatile unsigned int *) GPIOF_BSRR);
                 tmp &= ~(1 << pin);
                 tmp |= (1 << pin);
-                *((unsigned int *) GPIOF_BSRR) = tmp;
+                *((volatile unsigned int *) GPIOF_BSRR) = tmp;
                 break;
             case GPIOG:
-                tmp = *((unsigned int *) GPIOG_BSRR);
+                tmp = *((volatile unsigned int *) GPIOG_BSRR);
                 tmp &= ~(1 << pin);
                 tmp |= (1 << pin);
-                *((unsigned int *) GPIOG_BSRR) = tmp;
+                *((volatile unsigned int *) GPIOG_BSRR) = tmp;
                 break;
             case GPIOH:
-                tmp = *((unsigned int *) GPIOH_BSRR);
+                tmp = *((volatile unsigned int *) GPIOH_BSRR);
                 tmp &= ~(1 << pin);
                 tmp |= (1 << pin);
-                *((unsigned int *) GPIOH_BSRR) = tmp;
+                *((volatile unsigned int *) GPIOH_BSRR) = tmp;
                 break;
             case GPIOI:
-                tmp = *((unsigned int *) GPIOI_BSRR);
+                tmp = *((volatile unsigned int *) GPIOI_BSRR);
                 tmp &= ~(1 << pin);
                 tmp |= (1 << pin);
-                *((unsigned int *) GPIOI_BSRR) = tmp;
+                *((volatile unsigned int *) GPIOI_BSRR) = tmp;
                 break;
             case GPIOJ:
-                tmp = *((unsigned int *) GPIOJ_BSRR);
+                tmp = *((volatile unsigned int *) GPIOJ_BSRR);
                 tmp &= ~(1 << pin);
                 tmp |= (1 << pin);
-                *((unsigned int *) GPIOJ_BSRR) = tmp;
+                *((volatile unsigned int *) GPIOJ_BSRR) = tmp;
                 break;
             case GPIOK:
-                tmp = *((unsigned int *) GPIOK_BSRR);
+                tmp = *((volatile unsigned int *) GPIOK_BSRR);
                 tmp &= ~(1 << pin);
                 tmp |= (1 << pin);
-                *((unsigned int *) GPIOK_BSRR) = tmp;
+                *((volatile unsigned int *) GPIOK_BSRR) = tmp;
                 break;
             default:
                 return;
@@ -674,70 +674,70 @@ void gpio_set_pin(int port, int pin, int val)
     } else {
         switch (port) {
             case GPIOA:
-                tmp = *((unsigned int *) GPIOA_BSRR);
+                tmp = *((volatile unsigned int *) GPIOA_BSRR);
                 tmp &= ~(1 << (pin + 16));
                 tmp |= (1 << (pin + 16));
-                *((unsigned int *) GPIOA_BSRR) = tmp;
+                *((volatile unsigned int *) GPIOA_BSRR) = tmp;
                 break;
             case GPIOB:
-                tmp = *((unsigned int *) GPIOB_BSRR);
+                tmp = *((volatile unsigned int *) GPIOB_BSRR);
                 tmp &= ~(1 << (pin + 16));
                 tmp |= (1 << (pin + 16));
-                *((unsigned int *) GPIOB_BSRR) = tmp;
+                *((volatile unsigned int *) GPIOB_BSRR) = tmp;
                 break;
             case GPIOC:
-                tmp = *((unsigned int *) GPIOC_BSRR);
+                tmp = *((volatile unsigned int *) GPIOC_BSRR);
                 tmp &= ~(1 << (pin + 16));
                 tmp |= (1 << (pin + 16));
-                *((unsigned int *) GPIOC_BSRR) = tmp;
+                *((volatile unsigned int *) GPIOC_BSRR) = tmp;
                 break;
             case GPIOD:
-                tmp = *((unsigned int *) GPIOD_BSRR);
+                tmp = *((volatile unsigned int *) GPIOD_BSRR);
                 tmp &= ~(1 << (pin + 16));
                 tmp |= (1 << (pin + 16));
-                *((unsigned int *) GPIOD_BSRR) = tmp;
+                *((volatile unsigned int *) GPIOD_BSRR) = tmp;
                 break;
             case GPIOE:
-                tmp = *((unsigned int *) GPIOE_BSRR);
+                tmp = *((volatile unsigned int *) GPIOE_BSRR);
                 tmp &= ~(1 << (pin + 16));
                 tmp |= (1 << (pin + 16));
-                *((unsigned int *) GPIOE_BSRR) = tmp;
+                *((volatile unsigned int *) GPIOE_BSRR) = tmp;
                 break;
             case GPIOF:
-                tmp = *((unsigned int *) GPIOF_BSRR);
+                tmp = *((volatile unsigned int *) GPIOF_BSRR);
                 tmp &= ~(1 << (pin + 16));
                 tmp |= (1 << (pin + 16));
-                *((unsigned int *) GPIOF_BSRR) = tmp;
+                *((volatile unsigned int *) GPIOF_BSRR) = tmp;
                 break;
             case GPIOG:
-                tmp = *((unsigned int *) GPIOG_BSRR);
+                tmp = *((volatile unsigned int *) GPIOG_BSRR);
                 tmp &= ~(1 << (pin + 16));
                 tmp |= (1 << (pin + 16));
-                *((unsigned int *) GPIOG_BSRR) = tmp;
+                *((volatile unsigned int *) GPIOG_BSRR) = tmp;
                 break;
             case GPIOH:
-                tmp = *((unsigned int *) GPIOH_BSRR);
+                tmp = *((volatile unsigned int *) GPIOH_BSRR);
                 tmp &= ~(1 << (pin + 16));
                 tmp |= (1 << (pin + 16));
-                *((unsigned int *) GPIOH_BSRR) = tmp;
+                *((volatile unsigned int *) GPIOH_BSRR) = tmp;
                 break;
             case GPIOI:
-                tmp = *((unsigned int *) GPIOI_BSRR);
+                tmp = *((volatile unsigned int *) GPIOI_BSRR);
                 tmp &= ~(1 << (pin + 16));
                 tmp |= (1 << (pin + 16));
-                *((unsigned int *) GPIOI_BSRR) = tmp;
+                *((volatile unsigned int *) GPIOI_BSRR) = tmp;
                 break;
             case GPIOJ:
-                tmp = *((unsigned int *) GPIOJ_BSRR);
+                tmp = *((volatile unsigned int *) GPIOJ_BSRR);
                 tmp &= ~(1 << (pin + 16));
                 tmp |= (1 << (pin + 16));
-                *((unsigned int *) GPIOJ_BSRR) = tmp;
+                *((volatile unsigned int *) GPIOJ_BSRR) = tmp;
                 break;
             case GPIOK:
-                tmp = *((unsigned int *) GPIOK_BSRR);
+                tmp = *((volatile unsigned int *) GPIOK_BSRR);
                 tmp &= ~(1 << (pin + 16));
                 tmp |= (1 << (pin + 16));
-                *((unsigned int *) GPIOK_BSRR) = tmp;
+                *((volatile unsigned int *) GPIOK_BSRR) = tmp;
                 break;
             default:
                 return;
@@ -751,37 +751,37 @@ int gpio_get_pin(int port, int pin)
     
     switch (port) {
         case GPIOA:
-            tmp = *((unsigned int *) GPIOA_IDR);
+            tmp = *((volatile unsigned int *) GPIOA_IDR);
             break;
         case GPIOB:
-            tmp = *((unsigned int *) GPIOB_IDR);
+            tmp = *((volatile unsigned int *) GPIOB_IDR);
             break;
         case GPIOC:
-            tmp = *((unsigned int *) GPIOC_IDR);
+            tmp = *((volatile unsigned int *) GPIOC_IDR);
             break;
         case GPIOD:
-            tmp = *((unsigned int *) GPIOD_IDR);
+            tmp = *((volatile unsigned int *) GPIOD_IDR);
             break;
         case GPIOE:
-            tmp = *((unsigned int *) GPIOE_IDR);
+            tmp = *((volatile unsigned int *) GPIOE_IDR);
             break;
         case GPIOF:
-            tmp = *((unsigned int *) GPIOF_IDR);
+            tmp = *((volatile unsigned int *) GPIOF_IDR);
             break;
         case GPIOG:
-            tmp = *((unsigned int *) GPIOG_IDR);
+            tmp = *((volatile unsigned int *) GPIOG_IDR);
             break;
         case GPIOH:
-            tmp = *((unsigned int *) GPIOH_IDR);
+            tmp = *((volatile unsigned int *) GPIOH_IDR);
             break;
         case GPIOI:
-            tmp = *((unsigned int *) GPIOI_IDR);
+            tmp = *((volatile unsigned int *) GPIOI_IDR);
             break;
         case GPIOJ:
-            tmp = *((unsigned int *) GPIOJ_IDR);
+            tmp = *((volatile unsigned int *) GPIOJ_IDR);
             break;
         case GPIOK:
-            tmp = *((unsigned int *) GPIOK_IDR);
+            tmp = *((volatile unsigned int *) GPIOK_IDR);
             break;
         default:
             return 0;
@@ -800,37 +800,37 @@ void gpio_wr(int port, unsigned short val)
     
     switch (port) {
         case GPIOA:
-            *((unsigned int *) GPIOA_ODR) = tmp;
+            *((volatile unsigned int *) GPIOA_ODR) = tmp;
             break;
         case GPIOB:
-            *((unsigned int *) GPIOB_ODR) = tmp;
+            *((volatile unsigned int *) GPIOB_ODR) = tmp;
             break;
         case GPIOC:
-            *((unsigned int *) GPIOC_ODR) = tmp;
+            *((volatile unsigned int *) GPIOC_ODR) = tmp;
             break;
         case GPIOD:
-            *((unsigned int *) GPIOD_ODR) = tmp;
+            *((volatile unsigned int *) GPIOD_ODR) = tmp;
             break;
         case GPIOE:
-            *((unsigned int *) GPIOE_ODR) = tmp;
+            *((volatile unsigned int *) GPIOE_ODR) = tmp;
             break;
         case GPIOF:
-            *((unsigned int *) GPIOF_ODR) = tmp;
+            *((volatile unsigned int *) GPIOF_ODR) = tmp;
             break;
         case GPIOG:
-            *((unsigned int *) GPIOG_ODR) = tmp;
+            *((volatile unsigned int *) GPIOG_ODR) = tmp;
             break;
         case GPIOH:
-            *((unsigned int *) GPIOH_ODR) = tmp;
+            *((volatile unsigned int *) GPIOH_ODR) = tmp;
             break;
         case GPIOI:
-            *((unsigned int *) GPIOI_ODR) = tmp;
+            *((volatile unsigned int *) GPIOI_ODR) = tmp;
             break;
         case GPIOJ:
-            *((unsigned int *) GPIOJ_ODR) = tmp;
+            *((volatile unsigned int *) GPIOJ_ODR) = tmp;
             break;
         case GPIOK:
-            *((unsigned int *) GPIOK_ODR) = tmp;
+            *((volatile unsigned int *) GPIOK_ODR) = tmp;
             break;
         default:
             return;
@@ -843,37 +843,37 @@ unsigned short gpio_rd(int port)
     
     switch (port) {
         case GPIOA:
-            tmp = *((unsigned int *) GPIOA_IDR);
+            tmp = *((volatile unsigned int *) GPIOA_IDR);
             break;
         case GPIOB:
-            tmp = *((unsigned int *) GPIOB_IDR);
+            tmp = *((volatile unsigned int *) GPIOB_IDR);
             break;
         case GPIOC:
-            tmp = *((unsigned int *) GPIOC_IDR);
+            tmp = *((volatile unsigned int *) GPIOC_IDR);
             break;
         case GPIOD:
-            tmp = *((unsigned int *) GPIOD_IDR);
+            tmp = *((volatile unsigned int *) GPIOD_IDR);
             break;
         case GPIOE:
-            tmp = *((unsigned int *) GPIOE_IDR);
+            tmp = *((volatile unsigned int *) GPIOE_IDR);
             break;
         case GPIOF:
-            tmp = *((unsigned int *) GPIOF_IDR);
+            tmp = *((volatile unsigned int *) GPIOF_IDR);
             break;
         case GPIOG:
-            tmp = *((unsigned int *) GPIOG_IDR);
+            tmp = *((volatile unsigned int *) GPIOG_IDR);
             break;
         case GPIOH:
-            tmp = *((unsigned int *) GPIOH_IDR);
+            tmp = *((volatile unsigned int *) GPIOH_IDR);
             break;
         case GPIOI:
-            tmp = *((unsigned int *) GPIOI_IDR);
+            tmp = *((volatile unsigned int *) GPIOI_IDR);
             break;
         case GPIOJ:
-            tmp = *((unsigned int *) GPIOJ_IDR);
+            tmp = *((volatile unsigned int *) GPIOJ_IDR);
             break;
         case GPIOK:
-            tmp = *((unsigned int *) GPIOK_IDR);
+            tmp = *((volatile unsigned int *) GPIOK_IDR);
             break;
         default:
             return 0;
