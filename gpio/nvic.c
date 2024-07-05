@@ -29,28 +29,28 @@ int nvic_is_active(int irq_nr)
     
     switch (reg_off) {
         case 0:
-            reg_tmp = *((unsigned int *) NVIC_IABR0);
+            reg_tmp = *((volatile unsigned int *) NVIC_IABR0);
             break;
         case 1:
-            reg_tmp = *((unsigned int *) NVIC_IABR1);
+            reg_tmp = *((volatile unsigned int *) NVIC_IABR1);
             break;
         case 2:
-            reg_tmp = *((unsigned int *) NVIC_IABR2);
+            reg_tmp = *((volatile unsigned int *) NVIC_IABR2);
             break;
         case 3:
-            reg_tmp = *((unsigned int *) NVIC_IABR3);
+            reg_tmp = *((volatile unsigned int *) NVIC_IABR3);
             break;
         case 4:
-            reg_tmp = *((unsigned int *) NVIC_IABR4);
+            reg_tmp = *((volatile unsigned int *) NVIC_IABR4);
             break;
         case 5:
-            reg_tmp = *((unsigned int *) NVIC_IABR5);
+            reg_tmp = *((volatile unsigned int *) NVIC_IABR5);
             break;
         case 6:
-            reg_tmp = *((unsigned int *) NVIC_IABR6);
+            reg_tmp = *((volatile unsigned int *) NVIC_IABR6);
             break;
         case 7:
-            reg_tmp = *((unsigned int *) NVIC_IABR7);
+            reg_tmp = *((volatile unsigned int *) NVIC_IABR7);
             break;
         default:
             return 0;
@@ -73,44 +73,44 @@ void nvic_clear_pending(int irq_nr)
     
     switch (reg_off) {
         case 0:
-            reg_tmp = *((unsigned int *) NVIC_ICPR0);
+            reg_tmp = *((volatile unsigned int *) NVIC_ICPR0);
             reg_tmp |= (1 << reg_pos);
-            *((unsigned int *) NVIC_ICPR0) = reg_tmp;
+            *((volatile unsigned int *) NVIC_ICPR0) = reg_tmp;
             break;
         case 1:
-            reg_tmp = *((unsigned int *) NVIC_ICPR1);
+            reg_tmp = *((volatile unsigned int *) NVIC_ICPR1);
             reg_tmp |= (1 << reg_pos);
-            *((unsigned int *) NVIC_ICPR1) = reg_tmp;
+            *((volatile unsigned int *) NVIC_ICPR1) = reg_tmp;
             break;
         case 2:
-            reg_tmp = *((unsigned int *) NVIC_ICPR2);
+            reg_tmp = *((volatile unsigned int *) NVIC_ICPR2);
             reg_tmp |= (1 << reg_pos);
-            *((unsigned int *) NVIC_ICPR2) = reg_tmp;
+            *((volatile unsigned int *) NVIC_ICPR2) = reg_tmp;
             break;
         case 3:
-            reg_tmp = *((unsigned int *) NVIC_ICPR3);
+            reg_tmp = *((volatile unsigned int *) NVIC_ICPR3);
             reg_tmp |= (1 << reg_pos);
-            *((unsigned int *) NVIC_ICPR3) = reg_tmp;
+            *((volatile unsigned int *) NVIC_ICPR3) = reg_tmp;
             break;
         case 4:
-            reg_tmp = *((unsigned int *) NVIC_ICPR4);
+            reg_tmp = *((volatile unsigned int *) NVIC_ICPR4);
             reg_tmp |= (1 << reg_pos);
-            *((unsigned int *) NVIC_ICPR4) = reg_tmp;
+            *((volatile unsigned int *) NVIC_ICPR4) = reg_tmp;
             break;
         case 5:
-            reg_tmp = *((unsigned int *) NVIC_ICPR5);
+            reg_tmp = *((volatile unsigned int *) NVIC_ICPR5);
             reg_tmp |= (1 << reg_pos);
-            *((unsigned int *) NVIC_ICPR5) = reg_tmp;
+            *((volatile unsigned int *) NVIC_ICPR5) = reg_tmp;
             break;
         case 6:
-            reg_tmp = *((unsigned int *) NVIC_ICPR6);
+            reg_tmp = *((volatile unsigned int *) NVIC_ICPR6);
             reg_tmp |= (1 << reg_pos);
-            *((unsigned int *) NVIC_ICPR6) = reg_tmp;
+            *((volatile unsigned int *) NVIC_ICPR6) = reg_tmp;
             break;
         case 7:
-            reg_tmp = *((unsigned int *) NVIC_ICPR7);
+            reg_tmp = *((volatile unsigned int *) NVIC_ICPR7);
             reg_tmp |= (1 << reg_pos);
-            *((unsigned int *) NVIC_ICPR7) = reg_tmp;
+            *((volatile unsigned int *) NVIC_ICPR7) = reg_tmp;
             break;
         default:
             return;
@@ -128,44 +128,44 @@ void nvic_enable(int irq_nr)
     
     switch (reg_off) {
         case 0:
-            reg_tmp = *((unsigned int *) NVIC_ISER0);
+            reg_tmp = *((volatile unsigned int *) NVIC_ISER0);
             reg_tmp |= (1 << reg_pos);
-            *((unsigned int *) NVIC_ISER0) = reg_tmp;
+            *((volatile unsigned int *) NVIC_ISER0) = reg_tmp;
             break;
         case 1:
-            reg_tmp = *((unsigned int *) NVIC_ISER1);
+            reg_tmp = *((volatile unsigned int *) NVIC_ISER1);
             reg_tmp |= (1 << reg_pos);
-            *((unsigned int *) NVIC_ISER1) = reg_tmp;
+            *((volatile unsigned int *) NVIC_ISER1) = reg_tmp;
             break;
         case 2:
-            reg_tmp = *((unsigned int *) NVIC_ISER2);
+            reg_tmp = *((volatile unsigned int *) NVIC_ISER2);
             reg_tmp |= (1 << reg_pos);
-            *((unsigned int *) NVIC_ISER2) = reg_tmp;
+            *((volatile unsigned int *) NVIC_ISER2) = reg_tmp;
             break;
         case 3:
-            reg_tmp = *((unsigned int *) NVIC_ISER3);
+            reg_tmp = *((volatile unsigned int *) NVIC_ISER3);
             reg_tmp |= (1 << reg_pos);
-            *((unsigned int *) NVIC_ISER3) = reg_tmp;
+            *((volatile unsigned int *) NVIC_ISER3) = reg_tmp;
             break;
         case 4:
-            reg_tmp = *((unsigned int *) NVIC_ISER4);
+            reg_tmp = *((volatile unsigned int *) NVIC_ISER4);
             reg_tmp |= (1 << reg_pos);
-            *((unsigned int *) NVIC_ISER4) = reg_tmp;
+            *((volatile unsigned int *) NVIC_ISER4) = reg_tmp;
             break;
         case 5:
-            reg_tmp = *((unsigned int *) NVIC_ISER5);
+            reg_tmp = *((volatile unsigned int *) NVIC_ISER5);
             reg_tmp |= (1 << reg_pos);
-            *((unsigned int *) NVIC_ISER5) = reg_tmp;
+            *((volatile unsigned int *) NVIC_ISER5) = reg_tmp;
             break;
         case 6:
-            reg_tmp = *((unsigned int *) NVIC_ISER6);
+            reg_tmp = *((volatile unsigned int *) NVIC_ISER6);
             reg_tmp |= (1 << reg_pos);
-            *((unsigned int *) NVIC_ISER6) = reg_tmp;
+            *((volatile unsigned int *) NVIC_ISER6) = reg_tmp;
             break;
         case 7:
-            reg_tmp = *((unsigned int *) NVIC_ISER7);
+            reg_tmp = *((volatile unsigned int *) NVIC_ISER7);
             reg_tmp |= (1 << reg_pos);
-            *((unsigned int *) NVIC_ISER7) = reg_tmp;
+            *((volatile unsigned int *) NVIC_ISER7) = reg_tmp;
             break;
         default:
             return;
