@@ -44,6 +44,7 @@ CCFLAGS			+= -nodefaultlibs
 CCFLAGS			+= -ffreestanding
 CCFLAGS			+= -march=$(TARGET_ARCH)
 CCFLAGS			+= -mthumb
+CCFLAGS			+= -O2
 CCFLAGS			+= -I ../include
 CCFLAGS			+= -I ./include
 CCFLAGS			+= -T ../ld/h745zi_cm7.ld
