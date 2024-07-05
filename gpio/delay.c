@@ -35,10 +35,10 @@ void handler_delay(void)
     if (!nvic_is_active(TIM7IRQ))
         return;
     
-    if (*((unsigned int *) TIM7_SR) && (1 << UIF)) {
-        tmp = *((unsigned int *) TIM7_SR);
+    if (*((volatile unsigned int *) TIM7_SR) && (1 << UIF)) {
+        tmp = *((volatile unsigned int *) TIM7_SR);
         tmp &= ~(1 << UIF);
-        *((unsigned int *) TIM7_SR) = tmp;
+        *((volatile unsigned int *) TIM7_SR) = tmp;
         nvic_clear_pending(TIM7IRQ);
         delay_timeout = 1;
     }
@@ -48,21 +48,21 @@ void delay_init(void)
 {
     unsigned int tmp;
     
-    tmp = *((unsigned int *) RCC_APB1LENR);
+    tmp = *((volatile unsigned int *) RCC_APB1LENR);
     tmp |= (1 << TIM7EN);
-    *((unsigned int *) RCC_APB1LENR) = tmp;
+    *((volatile unsigned int *) RCC_APB1LENR) = tmp;
     nvic_enable(TIM7IRQ);
 }
 
 void delay_us(int us)
 {
     delay_timeout = 0;
-    *((unsigned int *) TIM7_PSC) = 1;
-    *((unsigned int *) TIM7_CNT) = 0;
-    *((unsigned int *) TIM7_ARR) = (us * 50);
-    *((unsigned int *) TIM7_DIER) |= (1 << UIE);
-    *((unsigned int *) TIM7_CR1) |= (1 << OPM);
-    *((unsigned int *) TIM7_CR1) |= (1 << CEN);
+    *((volatile unsigned int *) TIM7_PSC) = 1;
+    *((volatile unsigned int *) TIM7_CNT) = 0;
+    *((volatile unsigned int *) TIM7_ARR) = (us * 50);
+    *((volatile unsigned int *) TIM7_DIER) |= (1 << UIE);
+    *((volatile unsigned int *) TIM7_CR1) |= (1 << OPM);
+    *((volatile unsigned int *) TIM7_CR1) |= (1 << CEN);
     
     while (!delay_timeout)
         ;
